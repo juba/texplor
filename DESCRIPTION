@@ -1,0 +1,30 @@
+Package: textools
+Type: Package
+Title: Interactive Interfaces for Textual Analysis
+Version: 0.0.1
+Date: 2018-10-15
+Authors@R: c(person("Julien", "Barnier", email="julien.barnier@ens-lyon.fr",
+    role=c("aut","cre")))
+Maintainer: Julien Barnier <julien.barnier@ens-lyon.fr>
+Description: Shiny interfaces and utility functionq for textual analysis.
+License: GPL (>= 3)
+VignetteBuilder: knitr
+URL: https://github.com/juba/textools
+BugReports: https://github.com/juba/textools/issues
+Encoding: UTF-8
+Imports: 
+    shiny (>= 1.0.5),
+    DT,
+    dplyr (>= 0.7.3),
+    tidyr,
+    ggplot2,
+    highr,
+    scatterD3 (>= 0.8.1),
+    quanteda (>= 0.99),
+    SnowballC,
+    stringi
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+RoxygenNote: 6.1.0
