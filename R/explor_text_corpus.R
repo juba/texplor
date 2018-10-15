@@ -785,7 +785,6 @@ explor_corpus <- function(qco, settings) {
           indexes <- indexes[start:end]
           out <- ""
           for (i in indexes) {
-            print(i)
             out <- paste(out, "<div class='document-content'>")
             out <- paste(out, "<p><strong>", rownames(docvars(co()))[i] ,"</strong></p>")
             if (is.null(input$doc_corpus) || req(input$doc_corpus) == "clean") {
@@ -802,11 +801,14 @@ explor_corpus <- function(qco, settings) {
             }
             if (input$doc_display == "Kwics") {
               tmp_terms <- phrase(tmp_terms)
-              kwics <- kwic(tmp_corp[i], pattern = tmp_terms, window = 7, valuetype = "fixed")
-              print(length(kwics$pre))
-              print(length(kwics$keyword))
-              print(length(kwics$post))
-              print(paste0("...", kwics$pre, " <strong>", kwics$keyword, "</strong> ", kwics$post, "..."))
+              kwics <- kwic(tmp_corp[i], pattern = tmp_terms, window = 7, valuetype = "fixed",
+                            what = "word", 
+                            remove_punct = input$treat_remove_punct, 
+                            remove_symbols = input$treat_remove_symbols,
+                            remove_twitter = input$treat_remove_twitter,
+                            remove_hyphens = input$treat_remove_hyphens,
+                            remove_url = input$treat_remove_url,
+                            remove_numbers = input$treat_remove_numbers)
               kwics$text <- paste0("...", kwics$pre, " <strong>", kwics$keyword, "</strong> ", kwics$post, "...")
               kwics <- paste(kwics$text, collapse = "<br />")
               out <- paste(out, kwics)
