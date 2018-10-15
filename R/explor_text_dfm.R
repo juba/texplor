@@ -486,7 +486,7 @@ explor_dfm <- function(dfm, settings) {
                    }
                    code <- paste0(code, "## ", gettext("Top features", domain = "R-explor"), "\n")
                    code <- paste0(code, get_topfeat_tab_code(dfm_name))
-                   code <- paste0(code, "## ", gettext("Optional DT::datable output", domain = "R-explor"), "\n")
+                   code <- paste0(code, "## ", gettext("Optional DT::datatable output", domain = "R-explor"), "\n")
                    show_code(code)
                  })
                  
