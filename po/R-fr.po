@@ -1,236 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: explor 0.1\n"
-"POT-Creation-Date: 2017-12-22 15:30\n"
-"PO-Revision-Date: 2017-12-22 15:32+0100\n"
+"POT-Creation-Date: 2018-10-15 16:07\n"
+"PO-Revision-Date: 2018-10-15 16:08+0200\n"
 "Last-Translator: Julien Barnier <julien@nozav.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-
-msgid "Position"
-msgstr "Position"
-
-msgid "Squared cosinus"
-msgstr "Cosinus carré"
-
-msgid "Contribution:"
-msgstr "Contribution:"
-
-msgid "Count:"
-msgstr "Effectif:"
-
-msgid "Variable"
-msgstr "Variable"
-
-msgid "Level"
-msgstr "Modalité"
-
-msgid "Animations"
-msgstr "Animations"
-
-msgid "Lasso selection"
-msgstr "Sélection lasso"
-
-msgid "Get R code"
-msgstr "Obtenir le code R"
-
-msgid "Export as SVG"
-msgstr "Exporter en SVG"
-
-msgid ""
-"<p>Copy/paste the following code to reproduce the displayed plot. Note that "
-"custom label positions are not taken into account, use the <em>export label "
-"positions</em> menu entry to save  them and add the file content to the "
-"<tt>labels_positions</tt> argument.</p>"
-msgstr ""
-"<p>Copier/coller le code suivant pour reproduire le graphique actuellement "
-"affiché. À noter que le positionnement manuel des labels n'est pas "
-"sauvegardé, vous devez utiliser l'option <em>export label positions</em> du "
-"menu pour les enregistrer et les passer ensuite à l'argument "
-"<tt>labels_positions</tt> .</p>"
-
-msgid "Dimension"
-msgstr "Axe"
-
-msgid "Active individuals"
-msgstr "Individus actifs"
-
-msgid "Supplementary individuals"
-msgstr "Individus supplémentaires"
-
-msgid "None"
-msgstr "Aucun"
-
-msgid "Contribution"
-msgstr "Contribution"
-
-msgid "Count"
-msgstr "Effectif"
-
-msgid "Points size :"
-msgstr "Taille :"
-
-msgid "Variable name"
-msgstr "Nom de variable"
-
-msgid "Variable type"
-msgstr "Type de variable"
-
-msgid "Variable position"
-msgstr "Position"
-
-msgid "Points color :"
-msgstr "Couleur :"
-
-msgid "Points symbol :"
-msgstr "Symboles :"
-
-msgid "Individual type"
-msgstr "Type d'individu"
-
-msgid "Fixed"
-msgstr "Constante"
-
-msgid "Points opacity :"
-msgstr "Opacité des points :"
-
-msgid "Rows"
-msgstr "Lignes"
-
-msgid "Columns"
-msgstr "Colonnes"
-
-msgid "Hide :"
-msgstr "Masquer :"
-
-msgid "Active levels"
-msgstr "Modalités actives"
-
-msgid "Active variables"
-msgstr "Variables actives"
-
-msgid "Supplementary levels"
-msgstr "Modalités supplémentaires"
-
-msgid "Supplementary variables"
-msgstr "Variables supplémentaires"
-
-msgid "Variables \\(\\eta^2\\)"
-msgstr "\\(\\eta^2\\) des variables actives"
-
-msgid "Supplementary variables \\(\\eta^2\\)"
-msgstr "\\(\\eta^2\\) des variables supplémentaires"
-
-msgid "Qualitative supplementary variables"
-msgstr "Variables supplémentaires qualitatives"
-
-msgid "Dimensions to plot"
-msgstr "Axes à afficher"
-
-msgid "Eigenvalues histogram"
-msgstr "Histogramme des valeurs propres"
-
-msgid "Eigenvalues table"
-msgstr "Tableau des valeurs propres"
-
-msgid "Axis"
-msgstr "Axe"
-
-msgid "Percentage of inertia"
-msgstr "Pourcentage d'inertie"
-
-msgid "obj must be of class CA"
-msgstr "obj doit être de classe CA"
-
-msgid "obj must be of class dudi and coa"
-msgstr "obj doit être de classes dudi et coa"
-
-msgid "CA"
-msgstr "CA"
-
-msgid "Eigenvalues"
-msgstr "Valeurs propres"
-
-msgid "Plot"
-msgstr "Graphique"
-
-msgid "X axis"
-msgstr "Axe X"
-
-msgid "Y axis"
-msgstr "Axe Y"
-
-msgid "Labels size"
-msgstr "Taille des étiquettes"
-
-msgid "Points size"
-msgstr "Taille des points"
-
-msgid "Minimum contribution to show label"
-msgstr "Contribution min pour afficher l'étiquette"
-
-msgid "Data"
-msgstr "Données"
-
-msgid "Export R code"
-msgstr "Obtenir le code R"
-
-msgid "obj must be of class MCA"
-msgstr "obj doit être de classe MCA"
-
-msgid "obj must be of class speMCA"
-msgstr "obj doit être de classe speMCA"
-
-msgid "obj must be of class mca"
-msgstr "obj doit être de classe mca"
-
-msgid "obj must be of class dudi and acm"
-msgstr "obj doit être de classes dudi et acm"
-
-msgid "MCA"
-msgstr "ACM"
-
-msgid "Variables plot"
-msgstr "Variables - graphique"
-
-msgid "Variables data"
-msgstr "Variables - données"
-
-msgid "Individuals plot"
-msgstr "Individus - graphique"
-
-msgid "Fixed points opacity"
-msgstr "Opacité des points"
-
-msgid "Show labels"
-msgstr "Afficher les étiquettes"
-
-msgid "Ellipses"
-msgstr "Ellipses"
-
-msgid "Individuals data"
-msgstr "Individus - données"
-
-msgid "obj must be of class PCA"
-msgstr "obj doit être de classe PCA"
-
-msgid "obj must be of class princomp"
-msgstr "obj doit être de classe princomp"
-
-msgid "obj must be of class prcomp"
-msgstr "obj doit être de classe prcomp"
-
-msgid "obj must be of class dudi and pca"
-msgstr "obj doit être de classes dudi et pca"
-
-msgid "PCA"
-msgstr "ACP"
 
 msgid "obj must be of class Corpus"
 msgstr "obj doit être de classe Corpus"
@@ -319,6 +100,9 @@ msgstr "Si rien n'est coché, tout est sélectionné."
 msgid "Filter terms on minimal frequency"
 msgstr "Occurrence minimale des termes retenus"
 
+msgid "Get R code"
+msgstr "Obtenir le code R"
+
 msgid "Frequent terms"
 msgstr "Termes fréquents"
 
@@ -348,6 +132,9 @@ msgstr "Occurrences des termes sélectionnés"
 
 msgid "Table"
 msgstr "Tableau"
+
+msgid "Plot"
+msgstr "Graphique"
 
 msgid "From"
 msgstr "De"
@@ -508,6 +295,9 @@ msgstr "Création du graphique"
 msgid "Document-feature matrix computation"
 msgstr "Calcul de la matrice termes-documents"
 
+msgid "Export R code"
+msgstr "Obtenir le code R"
+
 msgid ""
 "Copy, paste and run the following code in your script to compute the "
 "corresponding document-feature matrix (dfm) :"
@@ -573,11 +363,224 @@ msgstr ""
 msgid "Dfm treatment"
 msgstr "Traitement de la dfm"
 
-msgid "obj must be of class coa"
-msgstr "obj doit être de classe coa"
+msgid "Optional DT::datatable output"
+msgstr "Sortie au format DT::datatable (facultatif)"
 
-msgid "the ade4 package is needed for this function to work."
-msgstr "le package ade4 doit être installé pour utiliser cette fonction."
+#~ msgid "Position"
+#~ msgstr "Position"
+
+#~ msgid "Squared cosinus"
+#~ msgstr "Cosinus carré"
+
+#~ msgid "Contribution:"
+#~ msgstr "Contribution:"
+
+#~ msgid "Count:"
+#~ msgstr "Effectif:"
+
+#~ msgid "Variable"
+#~ msgstr "Variable"
+
+#~ msgid "Level"
+#~ msgstr "Modalité"
+
+#~ msgid "Animations"
+#~ msgstr "Animations"
+
+#~ msgid "Lasso selection"
+#~ msgstr "Sélection lasso"
+
+#~ msgid "Export as SVG"
+#~ msgstr "Exporter en SVG"
+
+#~ msgid ""
+#~ "<p>Copy/paste the following code to reproduce the displayed plot. Note "
+#~ "that custom label positions are not taken into account, use the "
+#~ "<em>export label positions</em> menu entry to save  them and add the file "
+#~ "content to the <tt>labels_positions</tt> argument.</p>"
+#~ msgstr ""
+#~ "<p>Copier/coller le code suivant pour reproduire le graphique "
+#~ "actuellement affiché. À noter que le positionnement manuel des labels "
+#~ "n'est pas sauvegardé, vous devez utiliser l'option <em>export label "
+#~ "positions</em> du menu pour les enregistrer et les passer ensuite à "
+#~ "l'argument <tt>labels_positions</tt> .</p>"
+
+#~ msgid "Dimension"
+#~ msgstr "Axe"
+
+#~ msgid "Active individuals"
+#~ msgstr "Individus actifs"
+
+#~ msgid "Supplementary individuals"
+#~ msgstr "Individus supplémentaires"
+
+#~ msgid "None"
+#~ msgstr "Aucun"
+
+#~ msgid "Contribution"
+#~ msgstr "Contribution"
+
+#~ msgid "Count"
+#~ msgstr "Effectif"
+
+#~ msgid "Points size :"
+#~ msgstr "Taille :"
+
+#~ msgid "Variable name"
+#~ msgstr "Nom de variable"
+
+#~ msgid "Variable type"
+#~ msgstr "Type de variable"
+
+#~ msgid "Variable position"
+#~ msgstr "Position"
+
+#~ msgid "Points color :"
+#~ msgstr "Couleur :"
+
+#~ msgid "Points symbol :"
+#~ msgstr "Symboles :"
+
+#~ msgid "Individual type"
+#~ msgstr "Type d'individu"
+
+#~ msgid "Fixed"
+#~ msgstr "Constante"
+
+#~ msgid "Points opacity :"
+#~ msgstr "Opacité des points :"
+
+#~ msgid "Rows"
+#~ msgstr "Lignes"
+
+#~ msgid "Columns"
+#~ msgstr "Colonnes"
+
+#~ msgid "Hide :"
+#~ msgstr "Masquer :"
+
+#~ msgid "Active levels"
+#~ msgstr "Modalités actives"
+
+#~ msgid "Active variables"
+#~ msgstr "Variables actives"
+
+#~ msgid "Supplementary levels"
+#~ msgstr "Modalités supplémentaires"
+
+#~ msgid "Supplementary variables"
+#~ msgstr "Variables supplémentaires"
+
+#~ msgid "Variables \\(\\eta^2\\)"
+#~ msgstr "\\(\\eta^2\\) des variables actives"
+
+#~ msgid "Supplementary variables \\(\\eta^2\\)"
+#~ msgstr "\\(\\eta^2\\) des variables supplémentaires"
+
+#~ msgid "Qualitative supplementary variables"
+#~ msgstr "Variables supplémentaires qualitatives"
+
+#~ msgid "Dimensions to plot"
+#~ msgstr "Axes à afficher"
+
+#~ msgid "Eigenvalues histogram"
+#~ msgstr "Histogramme des valeurs propres"
+
+#~ msgid "Eigenvalues table"
+#~ msgstr "Tableau des valeurs propres"
+
+#~ msgid "Axis"
+#~ msgstr "Axe"
+
+#~ msgid "Percentage of inertia"
+#~ msgstr "Pourcentage d'inertie"
+
+#~ msgid "obj must be of class CA"
+#~ msgstr "obj doit être de classe CA"
+
+#~ msgid "obj must be of class dudi and coa"
+#~ msgstr "obj doit être de classes dudi et coa"
+
+#~ msgid "CA"
+#~ msgstr "CA"
+
+#~ msgid "Eigenvalues"
+#~ msgstr "Valeurs propres"
+
+#~ msgid "X axis"
+#~ msgstr "Axe X"
+
+#~ msgid "Y axis"
+#~ msgstr "Axe Y"
+
+#~ msgid "Labels size"
+#~ msgstr "Taille des étiquettes"
+
+#~ msgid "Points size"
+#~ msgstr "Taille des points"
+
+#~ msgid "Minimum contribution to show label"
+#~ msgstr "Contribution min pour afficher l'étiquette"
+
+#~ msgid "Data"
+#~ msgstr "Données"
+
+#~ msgid "obj must be of class MCA"
+#~ msgstr "obj doit être de classe MCA"
+
+#~ msgid "obj must be of class speMCA"
+#~ msgstr "obj doit être de classe speMCA"
+
+#~ msgid "obj must be of class mca"
+#~ msgstr "obj doit être de classe mca"
+
+#~ msgid "obj must be of class dudi and acm"
+#~ msgstr "obj doit être de classes dudi et acm"
+
+#~ msgid "MCA"
+#~ msgstr "ACM"
+
+#~ msgid "Variables plot"
+#~ msgstr "Variables - graphique"
+
+#~ msgid "Variables data"
+#~ msgstr "Variables - données"
+
+#~ msgid "Individuals plot"
+#~ msgstr "Individus - graphique"
+
+#~ msgid "Fixed points opacity"
+#~ msgstr "Opacité des points"
+
+#~ msgid "Show labels"
+#~ msgstr "Afficher les étiquettes"
+
+#~ msgid "Ellipses"
+#~ msgstr "Ellipses"
+
+#~ msgid "Individuals data"
+#~ msgstr "Individus - données"
+
+#~ msgid "obj must be of class PCA"
+#~ msgstr "obj doit être de classe PCA"
+
+#~ msgid "obj must be of class princomp"
+#~ msgstr "obj doit être de classe princomp"
+
+#~ msgid "obj must be of class prcomp"
+#~ msgstr "obj doit être de classe prcomp"
+
+#~ msgid "obj must be of class dudi and pca"
+#~ msgstr "obj doit être de classes dudi et pca"
+
+#~ msgid "PCA"
+#~ msgstr "ACP"
+
+#~ msgid "obj must be of class coa"
+#~ msgstr "obj doit être de classe coa"
+
+#~ msgid "the ade4 package is needed for this function to work."
+#~ msgstr "le package ade4 doit être installé pour utiliser cette fonction."
 
 #~ msgid "Documents"
 #~ msgstr "Documents"
