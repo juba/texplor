@@ -1,6 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^example_.*\.R
-ggcrosstab.R
 resources
 ^\.travis\.yml$
