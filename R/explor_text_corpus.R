@@ -524,7 +524,7 @@ explor_corpus <- function(qco, settings) {
             code <- paste0(code, "dfm <- dfm_wordstem(dfm, language = '", input$treat_stem_lang, "')\n")
           }
           if (!is.na(input$term_min_occurrences) && input$term_min_occurrences > 0) {
-            code <- paste0(code, "dfm <- dfm_trim(dfm, min_count = ", input$term_min_occurrences, ")")
+            code <- paste0(code, "dfm <- dfm_trim(dfm, min_termfreq = ", input$term_min_occurrences, ")")
           }
           code
         })
