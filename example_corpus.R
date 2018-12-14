@@ -24,8 +24,8 @@ library(quanteda)
 data("data_corpus_inaugural")
 res <- data_corpus_inaugural
 
-dict <- list(country = c("country", "nation", "governement"))
-
+dict <- list(country = c("country", "nation", "governement"),
+             freedom = "free*")
 stop <- c(stopwords("english"), stopwords("french"))
 stop <- stopwords("english")
 texplor(res, stopwords = stop, dictionary = dict)
