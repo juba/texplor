@@ -15,8 +15,9 @@ texplor_corpus_ui <- function(qco, settings) {
 #filters .shiny-input-container {
     border-bottom: 1px solid #BBB;
     margin: 0px;
-    padding: 5px 4px;
+    padding: 10px 15px;
     background-color: #FAFAFA;
+    width: 95%;
 }
 
 #filters .shiny-input-container:first-child {
@@ -28,7 +29,11 @@ texplor_corpus_ui <- function(qco, settings) {
 }
 
 #stopwords .shiny-input-container {
-    width: 100%;
+    width: 95%;
+}
+
+.material-switch label {
+    width: 45px;
 }
 ")
   }
