@@ -38,17 +38,21 @@ texplor_corpus_server <- function(qco, settings) {
     ## Dictionary
     output$dictionary <- renderUI({
       keys <- names(settings$dictionary)
-      dictionary_inputs <- lapply(keys, function(key) {
+      dictionary_inputs <- lapply(1:length(keys), function(i) {
+        key <- keys[i]
         list(
-          textInput(paste0("dictkey_", key), 
+          textInput(paste0("dictkey_", i), 
             label = NULL, 
             value = key, 
             width = "30%"), 
           " ", icon("long-arrow-alt-left"), " ",
-          textInput(paste0("dictval_", key), 
+          textInput(paste0("dictval_", i), 
             label = NULL, 
             value = paste(settings$dictionary[[key]], collapse=", "),
-            width = "50%")
+            width = "50%"),
+          " ", actionButton(paste0("remove_dict_", i), label=icon("trash-alt"), 
+                title = gettext("Remove entry"), status = "danger"),
+          br()
         )
       })
       return(dictionary_inputs)

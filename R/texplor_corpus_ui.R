@@ -13,6 +13,10 @@ texplor_corpus_ui <- function(qco, settings) {
     padding: 5px 15px;
 }
 
+#dictionary button {
+    padding: 2px 6px;
+}
+
 #filters .shiny-input-container {
     border-bottom: 1px solid #BBB;
     margin: 0px;
@@ -141,7 +145,8 @@ navbarPage(theme = shinythemes::shinytheme("cosmo"),
         h3(gettext("Dictionary")),
         texplor_switch("treat_dictionary", gettext("Apply dictionary"), value = !is.null(settings$dictionary)),
         div(id="dictionary",
-          uiOutput("dictionary")
+          uiOutput("dictionary"),
+          p(actionLink("dictionary_add_entry", HTML(paste(icon("plus-circle"), gettext("Add entry")))))
         ),
         shinyWidgets::radioGroupButtons(inputId = "dictionary_type", label=NULL, 
           status = "primary",
