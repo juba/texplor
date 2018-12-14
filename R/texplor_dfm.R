@@ -1,18 +1,18 @@
 
 
-##' @rdname explor
-##' @aliases explor.dfm
+##' @rdname texplor
+##' @aliases texplor.dfm
 ##' @export
 
-explor.dfm <- function(obj, ...) {
+texplor.dfm <- function(obj, ...) {
     
-    if (!inherits(obj, "dfm")) stop(gettext("obj must be of class dfm", domain = "R-explor"))
+    if (!inherits(obj, "dfm")) stop(gettext("obj must be of class dfm", domain = "R-texplor"))
     
     ## Settings
     settings <- list(dfm_name = deparse(substitute(obj)))
 
     ## Launch interface
-    explor_dfm(obj, settings)
+    texplor_dfm(obj, settings)
     
 }
 
@@ -21,7 +21,7 @@ explor.dfm <- function(obj, ...) {
 ##' @import quanteda
 ##' @importFrom highr hi_html
 
-explor_dfm <- function(dfm, settings) { 
+texplor_dfm <- function(dfm, settings) { 
     
 
     ## Document level variables
@@ -33,33 +33,33 @@ explor_dfm <- function(dfm, settings) {
     freq_choices <- c("tf", "idf", "tf_idf")
     
     shiny::shinyApp(
-      ui = navbarPage(gettext("Dfm", domain = "R-explor"),
+      ui = navbarPage(gettext("Dfm", domain = "R-texplor"),
                       header = tags$head(
-                        tags$style(explor_text_css())),
-                      tabPanel(gettext("Document-feature matrix", domain = "R-explor"),
+                        tags$style(texplor_text_css())),
+                      tabPanel(gettext("Document-feature matrix", domain = "R-texplor"),
                          sidebarLayout(
                            
                            ## Sidebar -------------------------------------------------
                            
                            sidebarPanel(id = "sidebar",
-                                        selectInput("doc_group", gettext("Group documents by", domain = "R-explor"), choices = c("none", vars)),
-                                        selectInput("dfm_weight", gettext("Weight dfm by", domain = "R-explor"), choices = c(
+                                        selectInput("doc_group", gettext("Group documents by", domain = "R-texplor"), choices = c("none", vars)),
+                                        selectInput("dfm_weight", gettext("Weight dfm by", domain = "R-texplor"), choices = c(
                                           "Count" = "frequency", 
                                           "tf-idf" = "tfidf",
                                           "Relative frequency" = "relfreq",
                                           "Maximum relative frequency" = "relmaxfreq",
                                           "Frequency logarithm" = "logfreq")),
-                                        numericInput("term_min_occurrences", gettext("Filter terms on minimal frequency", domain = "R-explor"), value = 0, min = 0)
+                                        numericInput("term_min_occurrences", gettext("Filter terms on minimal frequency", domain = "R-texplor"), value = 0, min = 0)
                            ),
                            mainPanel(
                              tabsetPanel(
                                
                                ## Wordcloud tab ----------------------------------------
                                
-                               tabPanel(gettext("Wordcloud", domain = "R-explor"),
-                                        h3(gettext("Wordcloud", domain = "R-explor")),
-                                        numericInput("wordcloud_maxwords", gettext("Maximum number of words per plot", domain = "R-explor"), min = 5, max = 1000, value = 30),
-                                        checkboxInput("wordcloud_compare", gettext("Compare by documents", domain = "R-explor"), value = FALSE),
+                               tabPanel(gettext("Wordcloud", domain = "R-texplor"),
+                                        h3(gettext("Wordcloud", domain = "R-texplor")),
+                                        numericInput("wordcloud_maxwords", gettext("Maximum number of words per plot", domain = "R-texplor"), min = 5, max = 1000, value = 30),
+                                        checkboxInput("wordcloud_compare", gettext("Compare by documents", domain = "R-texplor"), value = FALSE),
                                         plotOutput("plot_wordcloud")
                                ),
                                
@@ -67,27 +67,27 @@ explor_dfm <- function(dfm, settings) {
                                
                                ## "Top features" tab --------------------------------
                                
-                               tabPanel(gettext("Top features", domain = "R-explor"),
-                                        h3(gettext("Top features", domain = "R-explor")),
-                                        checkboxInput("topfeat_scheme", gettext("Compare by documents", domain = "R-explor"), value = FALSE),
-                                        selectInput("topfeat_group", gettext("Group by", domain = "R-explor"), choices = c("none", vars)),
-                                        numericInput("topfeat_n", gettext("Number of features to keep", domain = "R-explor"), value = 20, min = 10, max = 1000),
-                                        p(HTML("<strong>", gettext("Number of documents", domain = "R-explor"), "&nbsp;:</strong>"), textOutput("nbdocs", inline = TRUE)),
+                               tabPanel(gettext("Top features", domain = "R-texplor"),
+                                        h3(gettext("Top features", domain = "R-texplor")),
+                                        checkboxInput("topfeat_scheme", gettext("Compare by documents", domain = "R-texplor"), value = FALSE),
+                                        selectInput("topfeat_group", gettext("Group by", domain = "R-texplor"), choices = c("none", vars)),
+                                        numericInput("topfeat_n", gettext("Number of features to keep", domain = "R-texplor"), value = 20, min = 10, max = 1000),
+                                        p(HTML("<strong>", gettext("Number of documents", domain = "R-texplor"), "&nbsp;:</strong>"), textOutput("nbdocs", inline = TRUE)),
                                         tabsetPanel(type = "pills",
-                                                    tabPanel(gettext("Table", domain = "R-explor"),
+                                                    tabPanel(gettext("Table", domain = "R-texplor"),
                                                              DT::dataTableOutput("topfeat_table"),
                                                              tags$p(actionButton("code_topfeat_table",
                                                                                  class = "btn-success",
                                                                                  icon = icon("code"),
-                                                                                 label = gettext("Get R code", domain = "R-explor")))
+                                                                                 label = gettext("Get R code", domain = "R-texplor")))
                                                     ),
-                                                    tabPanel(gettext("Plot", domain = "R-explor"),
+                                                    tabPanel(gettext("Plot", domain = "R-texplor"),
                                                              tags$p(htmlOutput("topfeat_plot_text")),
                                                              plotOutput("topfeat_plot"),
                                                              tags$p(actionButton("code_topfeat_plot",
                                                                                  class = "btn-success",
                                                                                  icon = icon("code"),
-                                                                                 label = gettext("Get R code", domain = "R-explor")))
+                                                                                 label = gettext("Get R code", domain = "R-texplor")))
                                                              
                                                     )
                                         )
@@ -97,24 +97,24 @@ explor_dfm <- function(dfm, settings) {
                                
                                ## "Terms search" tab ----------------------------------
                                
-                               tabPanel(gettext("Terms search", domain = "R-explor"),
-                                        h3(gettext("Terms search", domain = "R-explor")),
-                                        HTML("<p>", gettext('Enter one or more terms. You can use logical operators like <code>&</code> ("and"), <code>|</code> ("or"), <code>!</code> ("not") and parentheses :', domain = "R-explor"), "</p>"),
+                               tabPanel(gettext("Terms search", domain = "R-texplor"),
+                                        h3(gettext("Terms search", domain = "R-texplor")),
+                                        HTML("<p>", gettext('Enter one or more terms. You can use logical operators like <code>&</code> ("and"), <code>|</code> ("or"), <code>!</code> ("not") and parentheses :', domain = "R-texplor"), "</p>"),
                                         fluidRow(
-                                          column(8, textInput("terms", gettext("Terms", domain = "R-explor"), width = "100%")),
+                                          column(8, textInput("terms", gettext("Terms", domain = "R-texplor"), width = "100%")),
                                           column(4, selectInput("term_group",
-                                                                gettext("Group by", domain = "R-explor"),
+                                                                gettext("Group by", domain = "R-texplor"),
                                                                 choices = names(vars)))),
                                         uiOutput("termsAlert"),
                                         uiOutput("evalAlert"),
-                                        h3(gettext("Selected terms frequency", domain = "R-explor")),
+                                        h3(gettext("Selected terms frequency", domain = "R-texplor")),
                                         htmlOutput("freqterm_query"),
                                         htmlOutput("freqterm_total"),
                                         tabsetPanel(type = "pills",
-                                                    tabPanel(gettext("Table", domain = "R-explor"),
+                                                    tabPanel(gettext("Table", domain = "R-texplor"),
                                                              DT::dataTableOutput("freqtermtable")
                                                     ),
-                                                    tabPanel(gettext("Plot", domain = "R-explor"),
+                                                    tabPanel(gettext("Plot", domain = "R-texplor"),
                                                              tags$p(htmlOutput("freqtermplottext")),
                                                              plotOutput("freqtermplot")
                                                     )
@@ -124,16 +124,16 @@ explor_dfm <- function(dfm, settings) {
                                
                                ## "Similarities" tab ----------------------------------------
                                
-                               tabPanel(gettext("Similarities", domain = "R-explor"),
-                                        h3(gettext("Term", domain = "R-explor")),
-                                        HTML("<p>", gettext("Enter a term :</p>", domain = "R-explor"), "</p>"),
+                               tabPanel(gettext("Similarities", domain = "R-texplor"),
+                                        h3(gettext("Term", domain = "R-texplor")),
+                                        HTML("<p>", gettext("Enter a term :</p>", domain = "R-texplor"), "</p>"),
                                         fluidRow(
-                                          column(6, textInput("termsim", gettext("Term", domain = "R-explor"))),
-                                          column(6,  selectInput("simmethod", gettext("Similarity", domain = "R-explor"),
+                                          column(6, textInput("termsim", gettext("Term", domain = "R-texplor"))),
+                                          column(6,  selectInput("simmethod", gettext("Similarity", domain = "R-texplor"),
                                                                  choices = c("correlation", "cosine", "jaccard"),
                                                                  selected = "correlation"))),
                                         uiOutput("termsimAlert"),
-                                        h3(gettext("Associated terms", domain = "R-explor")),
+                                        h3(gettext("Associated terms", domain = "R-texplor")),
                                         DT::dataTableOutput("simtermtable")
                                )
                                
@@ -173,7 +173,7 @@ explor_dfm <- function(dfm, settings) {
                  dtm <- reactive({
                    code <- get_dfm_code("dfm")
                    if (code != "") {
-                     withProgress(message = gettext("Recomputing dfm", domain = "R-explor"), value = 0.3, {
+                     withProgress(message = gettext("Recomputing dfm", domain = "R-texplor"), value = 0.3, {
                        eval(parse(text = code))
                        incProgress(0.7)
                        return(tmp_dfm)
@@ -280,7 +280,7 @@ explor_dfm <- function(dfm, settings) {
                    ## Progress
                    query_progress <- shiny::Progress$new()
                    on.exit(query_progress$close())
-                   query_progress$set(message = gettext("Running query", domain = "R-explor"), value = 0)
+                   query_progress$set(message = gettext("Running query", domain = "R-texplor"), value = 0)
                    
                    error <- NULL
                    if (length(terms()) == 0) return(list(res = NULL, error = NULL))
@@ -310,7 +310,7 @@ explor_dfm <- function(dfm, settings) {
                    if (length(invalid_terms() > 0) && invalid_terms() != "") {
                      tmp_terms <- paste(invalid_terms(), collapse = ", ")
                      div(class = "alert alert-warning",
-                         HTML(paste(gettext("<strong>Warning :</strong> the following terms are missing from the corpus : <i>", domain = "R-explor"), tmp_terms, "</i>")))
+                         HTML(paste(gettext("<strong>Warning :</strong> the following terms are missing from the corpus : <i>", domain = "R-texplor"), tmp_terms, "</i>")))
                    }
                  })
                  
@@ -319,7 +319,7 @@ explor_dfm <- function(dfm, settings) {
                    e <- terms_query()$error
                    if (!is.null(e)) {
                      div(class = "alert alert-danger",
-                         HTML(paste(gettext("<strong>Warning :</strong> Query error : <i>", domain = "R-explor"), e, "</i>")))
+                         HTML(paste(gettext("<strong>Warning :</strong> Query error : <i>", domain = "R-texplor"), e, "</i>")))
                    }
                  })
                  
@@ -342,7 +342,7 @@ explor_dfm <- function(dfm, settings) {
                    names(tmp_dfm) <- "n"
                    res <- tmp_dfm %>% 
                      summarise(nb_docs = sum(n), prop_docs = round(nb_docs / n() * 100, 1)) %>%
-                     mutate(nom = gettext("Total", domain = "R-explor")) %>% select(nom, nb_docs, prop_docs)
+                     mutate(nom = gettext("Total", domain = "R-texplor")) %>% select(nom, nb_docs, prop_docs)
                    res
                  })
                  
@@ -356,7 +356,7 @@ explor_dfm <- function(dfm, settings) {
                    if (input$terms == "") {
                      return("")
                    }
-                   res <- paste0(gettext("<p><strong>Query :</strong> <code>", domain = "R-explor"), input$terms, "</code>.</p>")
+                   res <- paste0(gettext("<p><strong>Query :</strong> <code>", domain = "R-texplor"), input$terms, "</code>.</p>")
                    return(HTML(res))
                  })
                  
@@ -366,7 +366,7 @@ explor_dfm <- function(dfm, settings) {
                      return("")
                    }
                    tab <- tab_term_tot()
-                   res <- paste0(gettext("<p><strong>Frequency in corpus :</strong> ", domain = "R-explor"), tab$nb_docs, gettext(" documents (", domain = "R-explor"), tab$prop_docs, "%).</p>")
+                   res <- paste0(gettext("<p><strong>Frequency in corpus :</strong> ", domain = "R-texplor"), tab$nb_docs, gettext(" documents (", domain = "R-texplor"), tab$prop_docs, "%).</p>")
                    return(HTML(res))
                  })
                  
@@ -376,19 +376,19 @@ explor_dfm <- function(dfm, settings) {
                      return(DT::datatable(data.frame(table = character())))
                    }
                    tab <- tab_term()
-                   names(tab) <- c(gettext("Group", domain = "R-explor"),
-                                   gettext("Number of documents", domain = "R-explor"),
-                                   gettext("Percentage of documents", domain = "R-explor"))
+                   names(tab) <- c(gettext("Group", domain = "R-texplor"),
+                                   gettext("Number of documents", domain = "R-texplor"),
+                                   gettext("Percentage of documents", domain = "R-texplor"))
                    tab <- DT::datatable(tab, 
-                                        options = c(tableOptions, order_option(tab, gettext("Percentage of documents", domain = "R-explor"))), rownames = FALSE)
+                                        options = c(tableOptions, order_option(tab, gettext("Percentage of documents", domain = "R-texplor"))), rownames = FALSE)
                    tab
                  })
                  
                  output$freqtermplottext <- renderText({
                    if (is.null(tab_term()) || nb_docs_term() == 0) {
-                     return(gettext("No document found", domain = "R-explor"))
+                     return(gettext("No document found", domain = "R-texplor"))
                    } else {
-                     text <- paste0(nb_docs_term(), gettext(" documents found. ", domain = "R-explor"))
+                     text <- paste0(nb_docs_term(), gettext(" documents found. ", domain = "R-texplor"))
                    }
                    return(HTML(text))
                  })
@@ -409,7 +409,7 @@ explor_dfm <- function(dfm, settings) {
                      g <- ggplot(tab) + 
                        geom_bar(aes(x = stats::reorder(group, prop_docs), y = prop_docs), stat = "identity") +
                        xlab(input$term_group) +
-                       ylab(gettext("Percentage of documents", domain = "R-explor")) +
+                       ylab(gettext("Percentage of documents", domain = "R-texplor")) +
                        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
                        expand_limits(y = 0)
                    } 
@@ -418,7 +418,7 @@ explor_dfm <- function(dfm, settings) {
                        geom_line() +
                        geom_smooth() +
                        xlab(input$term_group) +
-                       ylab(gettext("Percentage of documents", domain = "R-explor")) +
+                       ylab(gettext("Percentage of documents", domain = "R-texplor")) +
                        expand_limits(y = 0)
                    }
                    g
@@ -447,7 +447,7 @@ explor_dfm <- function(dfm, settings) {
                  output$termsimAlert <- renderUI({
                    if (input$termsim != "" && invalid_sim_term()) {
                      div(class = "alert alert-warning",
-                         HTML(paste(gettext("<strong>Warning :</strong> term not found in the corpus : <i>", domain = "R-explor"), input$termsim, "</i>")))
+                         HTML(paste(gettext("<strong>Warning :</strong> term not found in the corpus : <i>", domain = "R-texplor"), input$termsim, "</i>")))
                    }
                  })
                  
@@ -468,8 +468,8 @@ explor_dfm <- function(dfm, settings) {
                                                 width.cutoff = 75, 
                                                 output = FALSE)$text.tidy
                    showModal(modalDialog(
-                     title = gettext("Export R code", domain = "R-explor"), size = "l", 
-                     HTML(paste0(gettext("Copy, paste and run the following code in your script to compute the displayed results :", domain = "R-explor"),
+                     title = gettext("Export R code", domain = "R-texplor"), size = "l", 
+                     HTML(paste0(gettext("Copy, paste and run the following code in your script to compute the displayed results :", domain = "R-texplor"),
                                  "<pre><code>",
                                  paste(highr::hi_html(code), collapse = "\n"),
                                  "</code></pre>")),
@@ -480,13 +480,13 @@ explor_dfm <- function(dfm, settings) {
                    dfm_name <- settings$dfm_name
                    dfm_code <- get_dfm_code(dfm_name)
                    if (dfm_code != "") {
-                     code <- paste0("## ", gettext("Dfm treatment", domain = "R-explor"), "\n")
+                     code <- paste0("## ", gettext("Dfm treatment", domain = "R-texplor"), "\n")
                      code <- paste0(code, dfm_code, "\n")
                      dfm_name <- "tmp_dfm"
                    }
-                   code <- paste0(code, "## ", gettext("Top features", domain = "R-explor"), "\n")
+                   code <- paste0(code, "## ", gettext("Top features", domain = "R-texplor"), "\n")
                    code <- paste0(code, get_topfeat_tab_code(dfm_name))
-                   code <- paste0(code, "## ", gettext("Optional DT::datatable output", domain = "R-explor"), "\n")
+                   code <- paste0(code, "## ", gettext("Optional DT::datatable output", domain = "R-texplor"), "\n")
                    show_code(code)
                  })
                  

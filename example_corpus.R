@@ -7,8 +7,8 @@ class(acq)
 res_brut <- acq
 res <- tm_map(acq, tolower)
 res <- tm_map(acq, removeWords, stopwords('english'))
-explor(res, obj_brut = res_brut)
-explor(acq)
+texplor(res, obj_brut = res_brut)
+texplor(acq)
 
 
 qacq <- corpus(acq)
@@ -16,17 +16,19 @@ docvars(qacq) <- docvars(qacq) %>%
   mutate(datetimestamp = as.Date(datetimestamp),
          id = as.numeric(id),
          oldid = as.numeric(oldid))
-explor(qacq)
+texplor(qacq)
 
 
 ## From quanteda
 library(quanteda)
 data("data_corpus_inaugural")
 res <- data_corpus_inaugural
-thesau <- list(country = c("country", "nation", "governement"))
+
+dict <- list(country = c("country", "nation", "governement"))
+
 stop <- c(stopwords("english"), stopwords("french"))
 stop <- stopwords("english")
-explor(res, stopwords = stop, thesaurus = thesau)
+texplor(res, stopwords = stop, dictionary = dict)
 
 
 
@@ -34,7 +36,7 @@ explor(res, stopwords = stop, thesaurus = thesau)
 library(quanteda)
 data("data_corpus_inaugural")
 dtm <- dfm(data_corpus_inaugural)
-explor(dtm)
+texplor(dtm)
 
 
 ## Manual

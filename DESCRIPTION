@@ -1,4 +1,4 @@
-Package: textools
+Package: texplor
 Type: Package
 Title: Interactive Interfaces for Textual Analysis
 Version: 0.0.1
@@ -27,4 +27,4 @@ Suggests:
     testthat,
     knitr,
     rmarkdown
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
