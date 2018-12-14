@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: explor 0.1\n"
-"POT-Creation-Date: 2018-12-14 16:51\n"
-"PO-Revision-Date: 2018-12-14 16:53+0100\n"
+"POT-Creation-Date: 2018-12-14 17:28\n"
+"PO-Revision-Date: 2018-12-14 17:16+0100\n"
 "Last-Translator: Julien Barnier <julien@nozav.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -144,7 +144,7 @@ msgid "Remove URLs"
 msgstr "Supprimer les URL"
 
 msgid "Remove Twitter"
-msgstr "Supprimer handles et hashtags Twitter"
+msgstr "Supprimer symboles Twitter"
 
 msgid "Stem words"
 msgstr "Raciniser les termes"
@@ -175,9 +175,6 @@ msgstr "Dictionnaire"
 
 msgid "Apply dictionary"
 msgstr "Appliquer le dictionnaire"
-
-msgid "Most frequent terms"
-msgstr "Termes les plus fréquents"
 
 msgid "Documents"
 msgstr "Documents"
@@ -244,6 +241,9 @@ msgstr "Graphique de position"
 
 msgid "Help"
 msgstr "Aide"
+
+msgid "Most frequent terms"
+msgstr "Termes les plus fréquents"
 
 msgid "How to read the table :"
 msgstr "Lecture du tableau :"

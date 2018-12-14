@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: texplor 0.0.1\n"
-"POT-Creation-Date: 2018-12-14 16:51\n"
+"POT-Creation-Date: 2018-12-14 17:28\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -166,9 +166,6 @@ msgstr ""
 msgid "Apply dictionary"
 msgstr ""
 
-msgid "Most frequent terms"
-msgstr ""
-
 msgid "Documents"
 msgstr ""
 
@@ -227,6 +224,9 @@ msgid "Position plot"
 msgstr ""
 
 msgid "Help"
+msgstr ""
+
+msgid "Most frequent terms"
 msgstr ""
 
 msgid "How to read the table :"
