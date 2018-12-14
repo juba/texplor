@@ -8,8 +8,9 @@ texplor_corpus_ui <- function(qco, settings) {
     margin-bottom: 3px;
 }
 
+#dictionary_type button,
 #ngrams button {
-    padding: 6px 8px;
+    padding: 5px 15px;
 }
 
 #filters .shiny-input-container {
@@ -17,11 +18,15 @@ texplor_corpus_ui <- function(qco, settings) {
     margin: 0px;
     padding: 10px 15px;
     background-color: #FAFAFA;
-    width: 95%;
+    width: 80%;
 }
 
 #filters .shiny-input-container:first-child {
     border-top: 1px solid #BBB;
+}
+
+#filters .shiny-options-group {
+    margin-top: 10px;
 }
 
 #filters {
@@ -29,7 +34,16 @@ texplor_corpus_ui <- function(qco, settings) {
 }
 
 #stopwords .shiny-input-container {
-    width: 95%;
+    width: 90%;
+}
+
+#dictionary .shiny-input-container {
+    display: inline-block;
+}
+
+#dictionary input {
+    height: 28px;
+    padding: 6px;
 }
 
 .material-switch label {
@@ -93,9 +107,8 @@ navbarPage(theme = shinythemes::shinytheme("cosmo"),
         texplor_switch("treat_remove_symbols", gettext("Remove symbols")),
         texplor_switch("treat_remove_hyphens", gettext("Remove hyphens")),
         texplor_switch("treat_remove_url", gettext("Remove URLs")),
-        #conditionalPanel("input.treat_remove_punct",
-        texplor_switch("treat_remove_twitter", gettext("Remove Twitter")),
-        texplor_switch("treat_stem", gettext("Stem words", value = FALSE)),
+        texplor_switch("treat_remove_twitter", gettext("Remove Twitter"), value = FALSE),
+        texplor_switch("treat_stem", gettext("Stem words"), value = FALSE),
         conditionalPanel("input.treat_stem",
           selectInput("treat_stem_lang", gettext("Stemming language"),
             choices = SnowballC::getStemLanguages(), selected = "english"), width = "50%"),
@@ -126,10 +139,16 @@ navbarPage(theme = shinythemes::shinytheme("cosmo"),
             width = "100%", rows = 6)
         ),
         h3(gettext("Dictionary")),
-        texplor_switch("treat_dictionary", gettext("Apply dictionary"), value = !is.null(settings$dictionary))
+        texplor_switch("treat_dictionary", gettext("Apply dictionary"), value = !is.null(settings$dictionary)),
+        div(id="dictionary",
+          uiOutput("dictionary")
+        ),
+        shinyWidgets::radioGroupButtons(inputId = "dictionary_type", label=NULL, 
+          status = "primary",
+          choices = c("glob", "regex", "fixed"))
       ),
       column(4,
-        h3(gettext("Most frequent terms")),
+        h3(gettext("Terms frequency")),
         p(HTML("<strong>", gettext("Number of documents"), "&nbsp;:</strong>"), textOutput("nbdocs", inline = TRUE)),
         DT::dataTableOutput("freqtable")
       )

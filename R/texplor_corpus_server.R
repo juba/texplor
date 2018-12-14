@@ -12,7 +12,7 @@ texplor_corpus_server <- function(qco, settings) {
     ## Variable inputs
     output$filters <- renderUI({
       
-      ## Document level variables filters
+      ## Document filters
       filter_inputs <- lapply(names(vars), function(name) {
         v <- vars[[name]]
         input_name <- paste0("meta_", name)
@@ -35,7 +35,24 @@ texplor_corpus_server <- function(qco, settings) {
       return(filter_inputs)
     })
     
-    
+    ## Dictionary
+    output$dictionary <- renderUI({
+      keys <- names(settings$dictionary)
+      dictionary_inputs <- lapply(keys, function(key) {
+        list(
+          textInput(paste0("dictkey_", key), 
+            label = NULL, 
+            value = key, 
+            width = "30%"), 
+          " ", icon("long-arrow-alt-left"), " ",
+          textInput(paste0("dictval_", key), 
+            label = NULL, 
+            value = paste(settings$dictionary[[key]], collapse=", "),
+            width = "50%")
+        )
+      })
+      return(dictionary_inputs)
+    })
     
     ## Corpus filtering R Code
     filtering_code <- reactive({
@@ -157,7 +174,7 @@ texplor_corpus_server <- function(qco, settings) {
       }
       if (!is.null(input$treat_dictionary) && input$treat_dictionary) {
         code <- paste0(code, "\n", 
-          "corpus_tokens <- tokens_lookup(corpus_tokens, dictionary(", dictionary_name, "), exclusive = FALSE)")
+          "corpus_tokens <- tokens_lookup(corpus_tokens, dictionary(", dictionary_name, "), valuetype = '", input$dictionary_type, "', exclusive = FALSE)")
       }
       if (!is.null(input$treat_stopwords) && input$treat_stopwords && input$stopwords != "") {
         if (is.null(settings$stopwords)) {
