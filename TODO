@@ -1,0 +1,23 @@
+- Lemmatisation avec Spacy
+- Possibilité de manipuler le thesaurus (regroupement de termes) et les mots-outils. On passe des listes en entrée, si elles sont modifiées on les met en sortie aussi.
+
+
+Nuages de mots :
+- https://github.com/jasondavies/d3-cloud
+- https://github.com/lchiffon/wordcloud2
+
+Matrices et graphes d'association terme x terme ou document x document. Problème : lourd. Limiter le nombre de termes, et/ou permettre de choisir seulement certains termes et limiter au sous-graphe qui les contient. Les calculs peuvent être lourds, peut-être faut il demander à faire le calcul de la matrice avant et faire une interface juste pour cette matrice.
+
+Entre documents : distance qui marche bien est celle du cosine.
+
+Analyse de similitude : graphe des co-occurrences + arbre de poids maximal
+
+Termes les plus fréquents
+
+Associations les plus fréquentes
+
+Analyses multidimensionnelles
+
+Topic Modeling : LDA, svd, fuzzy clustering
+
+Partitionnement : reinert...
