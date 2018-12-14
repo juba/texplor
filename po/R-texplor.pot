@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: explor 0.4.0\n"
-"POT-Creation-Date: 2017-12-22 15:30\n"
+"Project-Id-Version: texplor 0.0.1\n"
+"POT-Creation-Date: 2018-12-14 16:51\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,235 +10,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 
-msgid "Position"
-msgstr ""
-
-msgid "Squared cosinus"
-msgstr ""
-
-msgid "Contribution:"
-msgstr ""
-
-msgid "Count:"
-msgstr ""
-
-msgid "Variable"
-msgstr ""
-
-msgid "Level"
-msgstr ""
-
-msgid "Animations"
-msgstr ""
-
-msgid "Lasso selection"
-msgstr ""
-
-msgid "Get R code"
-msgstr ""
-
-msgid "Export as SVG"
-msgstr ""
-
-msgid "<p>Copy/paste the following code to reproduce the displayed plot. Note that custom label positions are not taken into account, use the <em>export label positions</em> menu entry to save  them and add the file content to the <tt>labels_positions</tt> argument.</p>"
-msgstr ""
-
-msgid "Dimension"
-msgstr ""
-
-msgid "Active individuals"
-msgstr ""
-
-msgid "Supplementary individuals"
-msgstr ""
-
-msgid "None"
-msgstr ""
-
-msgid "Contribution"
-msgstr ""
-
-msgid "Count"
-msgstr ""
-
-msgid "Points size :"
-msgstr ""
-
-msgid "Variable name"
-msgstr ""
-
-msgid "Variable type"
-msgstr ""
-
-msgid "Variable position"
-msgstr ""
-
-msgid "Points color :"
-msgstr ""
-
-msgid "Points symbol :"
-msgstr ""
-
-msgid "Individual type"
-msgstr ""
-
-msgid "Fixed"
-msgstr ""
-
-msgid "Points opacity :"
-msgstr ""
-
-msgid "Rows"
-msgstr ""
-
-msgid "Columns"
-msgstr ""
-
-msgid "Hide :"
-msgstr ""
-
-msgid "Active levels"
-msgstr ""
-
-msgid "Active variables"
-msgstr ""
-
-msgid "Supplementary levels"
-msgstr ""
-
-msgid "Supplementary variables"
-msgstr ""
-
-msgid "Variables \\(\\eta^2\\)"
-msgstr ""
-
-msgid "Supplementary variables \\(\\eta^2\\)"
-msgstr ""
-
-msgid "Qualitative supplementary variables"
-msgstr ""
-
-msgid "Dimensions to plot"
-msgstr ""
-
-msgid "Eigenvalues histogram"
-msgstr ""
-
-msgid "Eigenvalues table"
-msgstr ""
-
-msgid "Axis"
-msgstr ""
-
-msgid "Percentage of inertia"
-msgstr ""
-
-msgid "obj must be of class CA"
-msgstr ""
-
-msgid "obj must be of class dudi and coa"
-msgstr ""
-
-msgid "CA"
-msgstr ""
-
-msgid "Eigenvalues"
-msgstr ""
-
-msgid "Plot"
-msgstr ""
-
-msgid "X axis"
-msgstr ""
-
-msgid "Y axis"
-msgstr ""
-
-msgid "Labels size"
-msgstr ""
-
-msgid "Points size"
-msgstr ""
-
-msgid "Minimum contribution to show label"
-msgstr ""
-
-msgid "Data"
-msgstr ""
-
-msgid "Export R code"
-msgstr ""
-
-msgid "obj must be of class MCA"
-msgstr ""
-
-msgid "obj must be of class speMCA"
-msgstr ""
-
-msgid "obj must be of class mca"
-msgstr ""
-
-msgid "obj must be of class dudi and acm"
-msgstr ""
-
-msgid "MCA"
-msgstr ""
-
-msgid "Variables plot"
-msgstr ""
-
-msgid "Variables data"
-msgstr ""
-
-msgid "Individuals plot"
-msgstr ""
-
-msgid "Fixed points opacity"
-msgstr ""
-
-msgid "Show labels"
-msgstr ""
-
-msgid "Ellipses"
-msgstr ""
-
-msgid "Individuals data"
-msgstr ""
-
-msgid "obj must be of class PCA"
-msgstr ""
-
-msgid "obj must be of class princomp"
-msgstr ""
-
-msgid "obj must be of class prcomp"
-msgstr ""
-
-msgid "obj must be of class dudi and pca"
-msgstr ""
-
-msgid "PCA"
-msgstr ""
-
 msgid "obj must be of class Corpus"
-msgstr ""
-
-msgid "raw_corpus must be of class Corpus"
 msgstr ""
 
 msgid "obj must be of class corpus"
 msgstr ""
 
+msgid "raw_corpus must be of class Corpus"
+msgstr ""
+
 msgid "raw_corpus must be of class corpus"
 msgstr ""
 
-msgid "Clean corpus"
+msgid "Recomputing dfm"
 msgstr ""
 
-msgid "Raw corpus"
+msgid "Term"
 msgstr ""
 
-msgid "Terms frequency"
+msgid "Term frequency"
 msgstr ""
 
 msgid "Number of documents"
@@ -247,16 +37,79 @@ msgstr ""
 msgid "Percentage of documents"
 msgstr ""
 
+msgid "Running query"
+msgstr ""
+
+msgid "<strong>Warning :</strong> the following terms are missing from the corpus : <i>"
+msgstr ""
+
+msgid "<strong>Warning :</strong> Query error : <i>"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "<p><strong>Query :</strong> <code>"
+msgstr ""
+
+msgid "<p><strong>Frequency in corpus :</strong>"
+msgstr ""
+
+msgid "documents ("
+msgstr ""
+
+msgid "Terms frequency"
+msgstr ""
+
+msgid "No document found"
+msgstr ""
+
+msgid "documents found."
+msgstr ""
+
+msgid "<div class='document-content'>No document found.</p>"
+msgstr ""
+
+msgid "%s to %s of %s"
+msgstr ""
+
+msgid "Computing Kwics"
+msgstr ""
+
+msgid "<strong>Only the first %s ones are displayed.</strong>"
+msgstr ""
+
+msgid "Creating x-ray plot"
+msgstr ""
+
+msgid "Corpus filtering"
+msgstr ""
+
+msgid "Document-feature matrix computation"
+msgstr ""
+
+msgid "Export R code"
+msgstr ""
+
+msgid "Copy, paste and run the following code in your script to compute the corresponding document-feature matrix (dfm) :"
+msgstr ""
+
+msgid "Clean corpus"
+msgstr ""
+
+msgid "Raw corpus"
+msgstr ""
+
 msgid "Words"
 msgstr ""
 
 msgid "Sentence"
 msgstr ""
 
-msgid "Corpus"
+msgid "Get R code"
 msgstr ""
 
-msgid "DTM exploration"
+msgid "Corpus"
 msgstr ""
 
 msgid "Corpus treatment"
@@ -274,19 +127,13 @@ msgstr ""
 msgid "Remove symbols"
 msgstr ""
 
-msgid "Remove Twitter"
-msgstr ""
-
 msgid "Remove hyphens"
 msgstr ""
 
 msgid "Remove URLs"
 msgstr ""
 
-msgid "Remove stopwords"
-msgstr ""
-
-msgid "Apply thesaurus"
+msgid "Remove Twitter"
 msgstr ""
 
 msgid "Stem words"
@@ -295,22 +142,34 @@ msgstr ""
 msgid "Stemming language"
 msgstr ""
 
-msgid "Ngrams"
+msgid "Terms computation"
 msgstr ""
 
-msgid "Corpus filtering"
+msgid "Filter terms"
 msgstr ""
 
-msgid "If nothing is selected, no filter is applied."
+msgid "Minimum frequency"
 msgstr ""
 
-msgid "Filter terms on minimal frequency"
+msgid "Filter documents"
 msgstr ""
 
-msgid "Frequent terms"
+msgid "Stop words"
+msgstr ""
+
+msgid "Remove stopwords"
+msgstr ""
+
+msgid "Dictionary"
+msgstr ""
+
+msgid "Apply dictionary"
 msgstr ""
 
 msgid "Most frequent terms"
+msgstr ""
+
+msgid "Documents"
 msgstr ""
 
 msgid "Terms search"
@@ -329,6 +188,9 @@ msgid "Selected terms frequency"
 msgstr ""
 
 msgid "Table"
+msgstr ""
+
+msgid "Plot"
 msgstr ""
 
 msgid "From"
@@ -350,6 +212,18 @@ msgid "Next"
 msgstr ""
 
 msgid "Number :"
+msgstr ""
+
+msgid "Terms location"
+msgstr ""
+
+msgid "Enter one or more terms :"
+msgstr ""
+
+msgid "Kwics"
+msgstr ""
+
+msgid "Position plot"
 msgstr ""
 
 msgid "Help"
@@ -385,75 +259,6 @@ msgstr ""
 msgid "<code>sky & (sea | ocean)</code> : search for documents with \"sky\" and the terms \"sea\" or \"ocean\" (or both)"
 msgstr ""
 
-msgid "Terms location"
-msgstr ""
-
-msgid "Enter one or more terms :"
-msgstr ""
-
-msgid "Kwics"
-msgstr ""
-
-msgid "Position plot"
-msgstr ""
-
-msgid "Recomputing dfm"
-msgstr ""
-
-msgid "Term"
-msgstr ""
-
-msgid "Term frequency"
-msgstr ""
-
-msgid "Running query"
-msgstr ""
-
-msgid "<strong>Warning :</strong> the following terms are missing from the corpus : <i>"
-msgstr ""
-
-msgid "<strong>Warning :</strong> Query error : <i>"
-msgstr ""
-
-msgid "Total"
-msgstr ""
-
-msgid "<p><strong>Query :</strong> <code>"
-msgstr ""
-
-msgid "<p><strong>Frequency in corpus :</strong>"
-msgstr ""
-
-msgid "documents ("
-msgstr ""
-
-msgid "No document found"
-msgstr ""
-
-msgid "documents found."
-msgstr ""
-
-msgid "<div class='document-content'>No document found.</p>"
-msgstr ""
-
-msgid "%s to %s of %s"
-msgstr ""
-
-msgid "Computing Kwics"
-msgstr ""
-
-msgid "<strong>Only the first %s ones are displayed.</strong>"
-msgstr ""
-
-msgid "Creating x-ray plot"
-msgstr ""
-
-msgid "Document-feature matrix computation"
-msgstr ""
-
-msgid "Copy, paste and run the following code in your script to compute the corresponding document-feature matrix (dfm) :"
-msgstr ""
-
 msgid "obj must be of class dfm"
 msgstr ""
 
@@ -467,6 +272,9 @@ msgid "Group documents by"
 msgstr ""
 
 msgid "Weight dfm by"
+msgstr ""
+
+msgid "Filter terms on minimal frequency"
 msgstr ""
 
 msgid "Wordcloud"
@@ -508,8 +316,5 @@ msgstr ""
 msgid "Dfm treatment"
 msgstr ""
 
-msgid "obj must be of class coa"
-msgstr ""
-
-msgid "the ade4 package is needed for this function to work."
+msgid "Optional DT::datatable output"
 msgstr ""

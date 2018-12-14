@@ -24,10 +24,6 @@ texplor <- function(obj, ...) {
   UseMethod("texplor")
 }
 
-gt <- function(text) {
-  gettext(text, domain = "R-texplor")
-}
-
 ##' @import shiny
 
 texplor_text_css <- function() {
@@ -123,7 +119,7 @@ span.hl.com { color: #888; font-style: italic;}
 texplor_switch <- function(id, label, value = TRUE, right = TRUE, status = "primary") {
   shinyWidgets::materialSwitch(
     inputId = id,
-    label = gettext(label, domain = "R_texplor"),
+    label = label,
     value = value,
     right = right,
     status = status

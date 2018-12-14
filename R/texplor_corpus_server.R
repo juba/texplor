@@ -203,7 +203,7 @@ texplor_corpus_server <- function(qco, settings) {
         return(NULL)
       }
       code <- corpus_dfm_code("co()", "settings$stopwords", "settings$dictionary")
-      withProgress(message = gt("Recomputing dfm"), value = 0.3, {
+      withProgress(message = gettext("Recomputing dfm"), value = 0.3, {
         eval(parse(text = code))
         incProgress(0.7)
       })
@@ -238,16 +238,16 @@ texplor_corpus_server <- function(qco, settings) {
       names(docf) <- "nb_docs"
       docf$term <- rownames(docf)
       docf$prop_docs <- (round(docf$nb_docs / ndoc(dtm()) * 100, 2))
-      # names(docf) <- c(gt("Term frequency"),
-      #                  gt("Documents frequency"),
-      #                  gt("Documents proportion"))
+      # names(docf) <- c(gettext("Term frequency"),
+      #                  gettext("Documents frequency"),
+      #                  gettext("Documents proportion"))
       tab <- frq %>% left_join(docf, by = "term") %>% select(term, nb_terms, nb_docs, prop_docs)
-      names(tab) <- c(gt("Term"),
-        gt("Term frequency"),
-        gt("Number of documents"),
-        gt("Percentage of documents"))
+      names(tab) <- c(gettext("Term"),
+        gettext("Term frequency"),
+        gettext("Number of documents"),
+        gettext("Percentage of documents"))
       DT::datatable(tab, 
-        options = c(tableOptions, order_option(tab, gt("Term frequency"))), rownames = FALSE)
+        options = c(tableOptions, order_option(tab, gettext("Term frequency"))), rownames = FALSE)
     })
     
     ### TERMS SEARCH ---------------------------------------------------------------------
@@ -271,7 +271,7 @@ texplor_corpus_server <- function(qco, settings) {
       ## Progress
       query_progress <- shiny::Progress$new()
       on.exit(query_progress$close())
-      query_progress$set(message = gt("Running query"), value = 0)
+      query_progress$set(message = gettext("Running query"), value = 0)
       
       error <- NULL
       if (length(terms()) == 0) return(list(res = NULL, error = NULL))
@@ -304,7 +304,7 @@ texplor_corpus_server <- function(qco, settings) {
       if (length(invalid_terms() > 0) && invalid_terms() != "") {
         tmp_terms <- paste(invalid_terms(), collapse = ", ")
         div(class = "alert alert-danger",
-          HTML(paste(gt("<strong>Warning :</strong> the following terms are missing from the corpus : <i>"), tmp_terms, "</i>")))
+          HTML(paste(gettext("<strong>Warning :</strong> the following terms are missing from the corpus : <i>"), tmp_terms, "</i>")))
       }
     })
     
@@ -314,7 +314,7 @@ texplor_corpus_server <- function(qco, settings) {
       e <- terms_query()$error
       if (!is.null(e)) {
         div(class = "alert alert-danger",
-          HTML(paste(gt("<strong>Warning :</strong> Query error : <i>"), e, "</i>")))
+          HTML(paste(gettext("<strong>Warning :</strong> Query error : <i>"), e, "</i>")))
       }
     })
     
@@ -340,7 +340,7 @@ texplor_corpus_server <- function(qco, settings) {
       names(tmp_dfm) <- "n"
       res <- tmp_dfm %>% 
         summarise(nb_docs = sum(n > 0), prop_docs = round(nb_docs / n() * 100, 1)) %>%
-        mutate(nom = gt("Total")) %>% select(nom, nb_docs, prop_docs)
+        mutate(nom = gettext("Total")) %>% select(nom, nb_docs, prop_docs)
       res
     })
     
@@ -354,7 +354,7 @@ texplor_corpus_server <- function(qco, settings) {
       if (input$terms == "") {
         return("")
       }
-      res <- paste0(gt("<p><strong>Query :</strong> <code>"), input$terms, "</code>.</p>")
+      res <- paste0(gettext("<p><strong>Query :</strong> <code>"), input$terms, "</code>.</p>")
       return(HTML(res))
     })
     
@@ -364,7 +364,7 @@ texplor_corpus_server <- function(qco, settings) {
         return("")
       }
       tab <- tab_term_tot()
-      res <- paste0(gt("<p><strong>Frequency in corpus :</strong> "), tab$nb_docs, gt(" documents ("), tab$prop_docs, "%).</p>")
+      res <- paste0(gettext("<p><strong>Frequency in corpus :</strong> "), tab$nb_docs, gettext(" documents ("), tab$prop_docs, "%).</p>")
       return(HTML(res))
     })
     
@@ -375,19 +375,19 @@ texplor_corpus_server <- function(qco, settings) {
       }
       tab <- tab_term()
       names(tab) <- c(input$term_group,
-        gt("Terms frequency"),
-        gt("Number of documents"),
-        gt("Percentage of documents"))
+        gettext("Terms frequency"),
+        gettext("Number of documents"),
+        gettext("Percentage of documents"))
       tab <- DT::datatable(tab, 
-        options = c(tableOptions, order_option(tab, gt("Percentage of documents"))), rownames = FALSE)
+        options = c(tableOptions, order_option(tab, gettext("Percentage of documents"))), rownames = FALSE)
       tab
     })
     
     output$freqtermplottext <- renderText({
       if (is.null(tab_term()) || nb_docs_term() == 0) {
-        return(gt("No document found"))
+        return(gettext("No document found"))
       } else {
-        text <- paste0(nb_docs_term(), gt(" documents found. "))
+        text <- paste0(nb_docs_term(), gettext(" documents found. "))
       }
       return(HTML(text))
     })
@@ -448,7 +448,7 @@ texplor_corpus_server <- function(qco, settings) {
       nb_docs <- tab_term_tot()$nb_docs
       start <- input$start_documents
       nb_documents <- input$nb_documents_display
-      if (is.null(terms_query()$res)) return(gt("<div class='document-content'>No document found.</p>"))
+      if (is.null(terms_query()$res)) return(gettext("<div class='document-content'>No document found.</p>"))
       indexes <- which(as.vector(terms_query()$res) > 0)
       end <- min(start + nb_documents - 1, nb_docs)
       indexes <- indexes[start:end]
@@ -503,7 +503,7 @@ texplor_corpus_server <- function(qco, settings) {
       nb_docs <- tab_term_tot()$nb_docs
       end <- min(start + nb_documents_display - 1, nb_docs)
       if (end == 0) start <- 0
-      sprintf(gt("%s to %s of %s"), start, end, nb_docs)
+      sprintf(gettext("%s to %s of %s"), start, end, nb_docs)
     })
     
     
@@ -518,7 +518,7 @@ texplor_corpus_server <- function(qco, settings) {
     
     ## Location terms kwic object
     kwic_loc_terms <- reactive({
-      withProgress(message = gt("Computing Kwics"), value = 0.3, {
+      withProgress(message = gettext("Computing Kwics"), value = 0.3, {
         if (is.null(loc_terms())) {
           return(NULL)
         }
@@ -552,13 +552,13 @@ texplor_corpus_server <- function(qco, settings) {
       text <- ""
       kw <- kwic_loc_terms()
       if (is.null(kw) || nrow(kw) == 0) {
-        return(gt("No document found"))
+        return(gettext("No document found"))
       } 
       nb_kw_docs <- length(unique(kw$docname))
-      text <- paste0(nb_kw_docs, gt(" documents found. "))
+      text <- paste0(nb_kw_docs, gettext(" documents found. "))
       if (nb_kw_docs > kwic_loc_nb_max) {
         text <- paste0(text,
-          sprintf(gt("<strong>Only the first %s ones are displayed.</strong>"), kwic_loc_nb_max))
+          sprintf(gettext("<strong>Only the first %s ones are displayed.</strong>"), kwic_loc_nb_max))
       }
       return(HTML(text))
     })
@@ -568,7 +568,7 @@ texplor_corpus_server <- function(qco, settings) {
       if (is.null(kw) || nrow(kw) == 0) return(NULL)
       nb_kw_docs <- length(unique(kw$docname))
       if (nb_kw_docs > kwic_loc_nb_max) kw <- head(kw, kwic_loc_nb_max)
-      withProgress(message = gt("Creating x-ray plot"), value = 0.3, {
+      withProgress(message = gettext("Creating x-ray plot"), value = 0.3, {
         g <- textplot_xray(kw)
         incProgress(0.7)
         return(g)
@@ -584,18 +584,18 @@ texplor_corpus_server <- function(qco, settings) {
       corpus_name <- settings$corpus_name
       filter_code <- corpus_filtering_code(corpus_name)
       if (filter_code != "") {
-        code <- paste0("## ", gt("Corpus filtering"), "\n")
+        code <- paste0("## ", gettext("Corpus filtering"), "\n")
         code <- paste0(code, filter_code, "\n")
         corpus_name <- "tmp_corpus"
       }
-      code <- paste0(code, "## ", gt("Document-feature matrix computation"), "\n")
+      code <- paste0(code, "## ", gettext("Document-feature matrix computation"), "\n")
       code <- paste0(code, corpus_dfm_code(corpus_name, settings$stopwords_name, settings$dictionary_name))
       code <- formatR::tidy_source(text = code, 
         width.cutoff = 75, 
         output = FALSE)$text.tidy
       showModal(modalDialog(
-        title = gt("Export R code"), size = "l", 
-        HTML(paste0(gt("Copy, paste and run the following code in your script to compute the corresponding document-feature matrix (dfm) :"),
+        title = gettext("Export R code"), size = "l", 
+        HTML(paste0(gettext("Copy, paste and run the following code in your script to compute the corresponding document-feature matrix (dfm) :"),
           "<pre><code>",
           paste(highr::hi_html(code), collapse = "\n"),
           "</code></pre>")),

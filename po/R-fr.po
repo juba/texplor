@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: explor 0.1\n"
-"POT-Creation-Date: 2018-10-15 16:07\n"
-"PO-Revision-Date: 2018-10-15 16:08+0200\n"
+"POT-Creation-Date: 2018-12-14 16:51\n"
+"PO-Revision-Date: 2018-12-14 16:53+0100\n"
 "Last-Translator: Julien Barnier <julien@nozav.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,22 +16,22 @@ msgstr ""
 msgid "obj must be of class Corpus"
 msgstr "obj doit être de classe Corpus"
 
-msgid "raw_corpus must be of class Corpus"
-msgstr "row_corpus doit être de classe Corpus"
-
 msgid "obj must be of class corpus"
 msgstr "obj doit être de classe corpus"
+
+msgid "raw_corpus must be of class Corpus"
+msgstr "row_corpus doit être de classe Corpus"
 
 msgid "raw_corpus must be of class corpus"
 msgstr "raw_corpus doit être de classe corpus"
 
-msgid "Clean corpus"
-msgstr "Corpus nettoyé"
+msgid "Recomputing dfm"
+msgstr "Recalcul de la DTM"
 
-msgid "Raw corpus"
-msgstr "Corpus brut"
+msgid "Term"
+msgstr "Terme"
 
-msgid "Terms frequency"
+msgid "Term frequency"
 msgstr "Fréquence des termes"
 
 msgid "Number of documents"
@@ -40,17 +40,87 @@ msgstr "Nombre de documents"
 msgid "Percentage of documents"
 msgstr "Pourcentage de documents"
 
+msgid "Running query"
+msgstr "Exécution de la requête"
+
+msgid ""
+"<strong>Warning :</strong> the following terms are missing from the corpus : "
+"<i>"
+msgstr ""
+"<strong>Attention :</strong> les termes suivants sont absents du corpus : <i>"
+
+msgid "<strong>Warning :</strong> Query error : <i>"
+msgstr "<strong>Attention :</strong> Erreur dans la requête : <i>"
+
+msgid "Total"
+msgstr "Ensemble"
+
+msgid "<p><strong>Query :</strong> <code>"
+msgstr "<p><strong>Requête :</strong> <code>"
+
+msgid "<p><strong>Frequency in corpus :</strong>"
+msgstr "<p><strong>Occurrences dans le corpus :</strong>"
+
+msgid "documents ("
+msgstr "documents ("
+
+msgid "Terms frequency"
+msgstr "Fréquence des termes"
+
+msgid "No document found"
+msgstr "Aucun document trouvé"
+
+msgid "documents found."
+msgstr "documents trouvés."
+
+msgid "<div class='document-content'>No document found.</p>"
+msgstr "<div class='document-content'>Aucun document trouvé.</p>"
+
+msgid "%s to %s of %s"
+msgstr "%s à %s sur %s"
+
+msgid "Computing Kwics"
+msgstr "Calcul des Kwics"
+
+msgid "<strong>Only the first %s ones are displayed.</strong>"
+msgstr "<strong>Seulement les %s premiers sont affichés.</strong>"
+
+msgid "Creating x-ray plot"
+msgstr "Création du graphique"
+
+msgid "Corpus filtering"
+msgstr "Filtrage du corpus"
+
+msgid "Document-feature matrix computation"
+msgstr "Calcul de la matrice termes-documents"
+
+msgid "Export R code"
+msgstr "Obtenir le code R"
+
+msgid ""
+"Copy, paste and run the following code in your script to compute the "
+"corresponding document-feature matrix (dfm) :"
+msgstr ""
+"Copier, coller et exécuter le code suivant dans votre script pour calculer "
+"la matrice termes-documents (DTM) correspondante :"
+
+msgid "Clean corpus"
+msgstr "Corpus nettoyé"
+
+msgid "Raw corpus"
+msgstr "Corpus brut"
+
 msgid "Words"
 msgstr "Mots"
 
 msgid "Sentence"
 msgstr "Phrase"
 
+msgid "Get R code"
+msgstr "Obtenir le code R"
+
 msgid "Corpus"
 msgstr "Corpus"
-
-msgid "DTM exploration"
-msgstr "Exploration"
 
 msgid "Corpus treatment"
 msgstr "Traitement du corpus"
@@ -67,20 +137,14 @@ msgstr "Supprimer la ponctuation"
 msgid "Remove symbols"
 msgstr "Supprimer les symboles"
 
-msgid "Remove Twitter"
-msgstr "Supprimer handles et hashtags Twitter"
-
 msgid "Remove hyphens"
 msgstr "Supprimer les traits d'union"
 
 msgid "Remove URLs"
 msgstr "Supprimer les URL"
 
-msgid "Remove stopwords"
-msgstr "Supprimer les mots-outils"
-
-msgid "Apply thesaurus"
-msgstr "Appliquer le thesaurus"
+msgid "Remove Twitter"
+msgstr "Supprimer handles et hashtags Twitter"
 
 msgid "Stem words"
 msgstr "Raciniser les termes"
@@ -88,26 +152,35 @@ msgstr "Raciniser les termes"
 msgid "Stemming language"
 msgstr "Langue pour la racinisation"
 
-msgid "Ngrams"
-msgstr "N-grams"
+msgid "Terms computation"
+msgstr "Position des termes"
 
-msgid "Corpus filtering"
-msgstr "Filtrage du corpus"
+msgid "Filter terms"
+msgstr "Filtrer les termes"
 
-msgid "If nothing is selected, no filter is applied."
-msgstr "Si rien n'est coché, tout est sélectionné."
+msgid "Minimum frequency"
+msgstr "Fréquence minimum"
 
-msgid "Filter terms on minimal frequency"
-msgstr "Occurrence minimale des termes retenus"
+msgid "Filter documents"
+msgstr "Filtrer les documents"
 
-msgid "Get R code"
-msgstr "Obtenir le code R"
+msgid "Stop words"
+msgstr "Mots outils"
 
-msgid "Frequent terms"
-msgstr "Termes fréquents"
+msgid "Remove stopwords"
+msgstr "Supprimer les mots-outils"
+
+msgid "Dictionary"
+msgstr "Dictionnaire"
+
+msgid "Apply dictionary"
+msgstr "Appliquer le dictionnaire"
 
 msgid "Most frequent terms"
 msgstr "Termes les plus fréquents"
+
+msgid "Documents"
+msgstr "Documents"
 
 msgid "Terms search"
 msgstr "Recherche de termes"
@@ -156,6 +229,18 @@ msgstr "Suivant"
 
 msgid "Number :"
 msgstr "Nombre :"
+
+msgid "Terms location"
+msgstr "Position des termes"
+
+msgid "Enter one or more terms :"
+msgstr "Saisir un ou plusieurs termes :"
+
+msgid "Kwics"
+msgstr "Kwics"
+
+msgid "Position plot"
+msgstr "Graphique de position"
 
 msgid "Help"
 msgstr "Aide"
@@ -226,85 +311,6 @@ msgstr ""
 "<code>ciel & (mer | océan)</code> : recherche les documents avec \"ciel\" et "
 "les termes \"mer\" ou \"océan\" (ou les deux)"
 
-msgid "Terms location"
-msgstr "Position des termes"
-
-msgid "Enter one or more terms :"
-msgstr "Saisir un ou plusieurs termes :"
-
-msgid "Kwics"
-msgstr "Kwics"
-
-msgid "Position plot"
-msgstr "Graphique de position"
-
-msgid "Recomputing dfm"
-msgstr "Recalcul de la DTM"
-
-msgid "Term"
-msgstr "Terme"
-
-msgid "Term frequency"
-msgstr "Fréquence de termes"
-
-msgid "Running query"
-msgstr "Exécution de la requête"
-
-msgid ""
-"<strong>Warning :</strong> the following terms are missing from the corpus : "
-"<i>"
-msgstr ""
-"<strong>Attention :</strong> les termes suivants sont absents du corpus : <i>"
-
-msgid "<strong>Warning :</strong> Query error : <i>"
-msgstr "<strong>Attention :</strong> Erreur dans la requête : <i>"
-
-msgid "Total"
-msgstr "Ensemble"
-
-msgid "<p><strong>Query :</strong> <code>"
-msgstr "<p><strong>Requête :</strong> <code>"
-
-msgid "<p><strong>Frequency in corpus :</strong>"
-msgstr "<p><strong>Occurrences dans le corpus :</strong>"
-
-msgid "documents ("
-msgstr "documents ("
-
-msgid "No document found"
-msgstr "Aucun document trouvé"
-
-msgid "documents found."
-msgstr "documents trouvés."
-
-msgid "<div class='document-content'>No document found.</p>"
-msgstr "<div class='document-content'>Aucun document trouvé.</p>"
-
-msgid "%s to %s of %s"
-msgstr "%s à %s sur %s"
-
-msgid "Computing Kwics"
-msgstr "Calcul des Kwics"
-
-msgid "<strong>Only the first %s ones are displayed.</strong>"
-msgstr "<strong>Seulement les %s premiers sont affichés.</strong>"
-
-msgid "Creating x-ray plot"
-msgstr "Création du graphique"
-
-msgid "Document-feature matrix computation"
-msgstr "Calcul de la matrice termes-documents"
-
-msgid "Export R code"
-msgstr "Obtenir le code R"
-
-msgid ""
-"Copy, paste and run the following code in your script to compute the "
-"corresponding document-feature matrix (dfm) :"
-msgstr ""
-"Copier, coller et exécuter le code suivant dans votre script pour calculer "
-"la matrice termes-documents (DTM) correspondante :"
-
 msgid "obj must be of class dfm"
 msgstr "obj doit être de classe dfm"
 
@@ -319,6 +325,9 @@ msgstr "Grouper les documents par"
 
 msgid "Weight dfm by"
 msgstr "Pondération de la dmf"
+
+msgid "Filter terms on minimal frequency"
+msgstr "Occurrence minimale des termes retenus"
 
 msgid "Wordcloud"
 msgstr "Nuage de points"
@@ -365,6 +374,21 @@ msgstr "Traitement de la dfm"
 
 msgid "Optional DT::datatable output"
 msgstr "Sortie au format DT::datatable (facultatif)"
+
+#~ msgid "DTM exploration"
+#~ msgstr "Exploration"
+
+#~ msgid "Apply thesaurus"
+#~ msgstr "Appliquer le thesaurus"
+
+#~ msgid "Ngrams"
+#~ msgstr "N-grams"
+
+#~ msgid "If nothing is selected, no filter is applied."
+#~ msgstr "Si rien n'est coché, tout est sélectionné."
+
+#~ msgid "Frequent terms"
+#~ msgstr "Termes fréquents"
 
 #~ msgid "Position"
 #~ msgstr "Position"
@@ -582,9 +606,6 @@ msgstr "Sortie au format DT::datatable (facultatif)"
 #~ msgid "the ade4 package is needed for this function to work."
 #~ msgstr "le package ade4 doit être installé pour utiliser cette fonction."
 
-#~ msgid "Documents"
-#~ msgstr "Documents"
-
 #~ msgid "Selected terms location"
 #~ msgstr "Position des termes sélectionnés"
 
@@ -599,9 +620,6 @@ msgstr "Sortie au format DT::datatable (facultatif)"
 
 #~ msgid "Phrase"
 #~ msgstr "Phrase"
-
-#~ msgid "Filtered corpus"
-#~ msgstr "Corpus filtré"
 
 #~ msgid "Stem words (english only)"
 #~ msgstr "Lemmatiser les termes (anglais seulement)"
