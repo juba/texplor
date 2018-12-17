@@ -13,10 +13,6 @@ texplor_corpus_ui <- function(qco, settings) {
     padding: 5px 15px;
 }
 
-#dictionary button {
-    padding: 2px 6px;
-}
-
 #filters .shiny-input-container {
     border-bottom: 1px solid #BBB;
     margin: 0px;
@@ -37,17 +33,9 @@ texplor_corpus_ui <- function(qco, settings) {
     margin-bottom: 30px;
 }
 
-#stopwords .shiny-input-container {
+#dictionary_div .shiny-input-container,
+#stopwords_div .shiny-input-container {
     width: 90%;
-}
-
-#dictionary .shiny-input-container {
-    display: inline-block;
-}
-
-#dictionary input {
-    height: 28px;
-    padding: 6px;
 }
 
 .material-switch label {
@@ -89,6 +77,16 @@ names(freqtermplot_y_choices) <- c(gettext("Terms frequency"),
 loc_type_choices <- c("words", "sentence")
 names(loc_type_choices) <- c(gettext("Words"), gettext("Sentence"))
 
+## Initial dictionary value
+dict2txt <- function(dict) {
+  out <- ""
+  for (i in 1:length(dict)) {
+    out <- paste0(out, names(dict)[i], " = ")
+    out <- paste0(out, paste(dict[[i]], collapse = ", "), "\n")
+  }
+  out
+}
+
 navbarPage(theme = shinythemes::shinytheme("cosmo"),
   title = actionButton("get_r_code",
     class = "btn-success",
@@ -97,7 +95,8 @@ navbarPage(theme = shinythemes::shinytheme("cosmo"),
   windowTitle = "texplor corpus",
   header = tags$head(                        
     tags$style(texplor_text_css()),
-    tags$style(texplor_corpus_css())),
+    tags$style(texplor_corpus_css()),
+    tags$script(texplor_corpus_js())),
   
   ## "Corpus" tab -------------------------------------------------
   
@@ -137,20 +136,20 @@ navbarPage(theme = shinythemes::shinytheme("cosmo"),
       ),
       column(3,
         h3(gettext("Stop words")),
-        div(id="stopwords",
+        div(id="stopwords_div",
           texplor_switch("treat_stopwords", gettext("Remove stopwords"), value = !is.null(settings$stopwords)),
           textAreaInput("stopwords", gettext("Stop words"), value = paste(settings$stopwords, collapse = ", "),
             width = "100%", rows = 6)
         ),
         h3(gettext("Dictionary")),
-        texplor_switch("treat_dictionary", gettext("Apply dictionary"), value = !is.null(settings$dictionary)),
-        div(id="dictionary",
-          uiOutput("dictionary"),
-          p(actionLink("dictionary_add_entry", HTML(paste(icon("plus-circle"), gettext("Add entry")))))
-        ),
-        shinyWidgets::radioGroupButtons(inputId = "dictionary_type", label=NULL, 
-          status = "primary",
-          choices = c("glob", "regex", "fixed"))
+        div(id="dictionary_div",
+          texplor_switch("treat_dictionary", gettext("Apply dictionary"), value = !is.null(settings$dictionary)),
+          textAreaInput("dictionary", gettext("Edit dictionary"), value = dict2txt(settings$dictionary),
+                      width = "100%", rows = 15),
+          shinyWidgets::radioGroupButtons(inputId = "dictionary_type", label=NULL, 
+            status = "primary",
+            choices = c("glob", "regex", "fixed"))
+        )
       ),
       column(4,
         h3(gettext("Terms frequency")),

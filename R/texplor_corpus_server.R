@@ -9,6 +9,8 @@ texplor_corpus_server <- function(qco, settings) {
   ## Return the server function
   function(input, output, session) {
     
+
+    
     ## Variable inputs
     output$filters <- renderUI({
       
@@ -35,28 +37,27 @@ texplor_corpus_server <- function(qco, settings) {
       return(filter_inputs)
     })
     
-    ## Dictionary
-    output$dictionary <- renderUI({
-      keys <- names(settings$dictionary)
-      dictionary_inputs <- lapply(1:length(keys), function(i) {
-        key <- keys[i]
-        list(
-          textInput(paste0("dictkey_", i), 
-            label = NULL, 
-            value = key, 
-            width = "30%"), 
-          " ", icon("long-arrow-alt-left"), " ",
-          textInput(paste0("dictval_", i), 
-            label = NULL, 
-            value = paste(settings$dictionary[[key]], collapse=", "),
-            width = "50%"),
-          " ", actionButton(paste0("remove_dict_", i), label=icon("trash-alt"), 
-                title = gettext("Remove entry"), status = "danger"),
-          br()
-        )
-      })
-      return(dictionary_inputs)
-    })
+    ## Convert dictionary textarea value back to dictionary list
+    txt2dict <- function(txt) {
+      if (trimws(txt) == "") return("")
+      entries <- strsplit(txt, "\n")[[1]]
+      entries <- entries[entries != ""]
+      entries <- trimws(entries, "both")
+      dict <- list()
+      for (entry in entries) {
+        elements <- strsplit(entry, "=")[[1]]
+        ## If several '=' in string, repaste them
+        if (length(elements) > 2) elements[2] <- paste(elements[-1], collapse = "=")
+        ## Ignore if no '='
+        if (length(elements) <= 1) next
+        key <- trimws(elements[1], "both")
+        ## Ignore if no key
+        if (key == "") next
+        values <- trimws(strsplit(elements[2], ",")[[1]], "both")
+        dict[[key]] <- values
+      }
+      dict
+    }
     
     ## Corpus filtering R Code
     filtering_code <- reactive({
@@ -160,8 +161,10 @@ texplor_corpus_server <- function(qco, settings) {
     # }
     
     stopwords_changed <- reactive({
-      any(sort(unlist(strsplit(input$stopwords, ", *"))) != sort(settings$stopwords)) ||
-        (is.null(settings$stopwords) && input$stopwords != "")
+      !identical(sort(unlist(strsplit(input$stopwords, ", *"))), sort(settings$stopwords))
+    })
+    dict_changed <- reactive({
+      !identical(txt2dict(input$dictionary), settings$dictionary)
     })
     
     tokens_code <- function(corpus_name, dictionary_name, stopwords_name) {
@@ -176,14 +179,18 @@ texplor_corpus_server <- function(qco, settings) {
         code <- paste0(code, "\n", 
           "corpus_tokens <- tokens_tolower(corpus_tokens)")
       }
-      if (!is.null(input$treat_dictionary) && input$treat_dictionary) {
+      dict <- txt2dict(input$dictionary)
+      if (!is.null(input$treat_dictionary) && input$treat_dictionary && dict != "") {
+        if (dict_changed()) {
+          dictionary_name <- "dict"
+          dict <- paste0(utils::capture.output(dput(txt2dict(input$dictionary))), collapse = "")
+          code <- paste0(code, "\n",
+             dictionary_name, " <- dictionary(", dict, ")")
+        }          
         code <- paste0(code, "\n", 
           "corpus_tokens <- tokens_lookup(corpus_tokens, dictionary(", dictionary_name, "), valuetype = '", input$dictionary_type, "', exclusive = FALSE)")
       }
       if (!is.null(input$treat_stopwords) && input$treat_stopwords && input$stopwords != "") {
-        if (is.null(settings$stopwords)) {
-          stopwords_name <- "stops"
-        }
         if (stopwords_changed()) {
           stopwords_name <- "stops"
           stops <- paste0(utils::capture.output(dput(unlist(strsplit(input$stopwords, " *, *")))), collapse="")
