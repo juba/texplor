@@ -42,6 +42,13 @@ body {margin: 0;}
   padding: 0;
 }              
 
+.help-icon {
+  margin-left: 6px;
+  font-size: 14px;
+  color: #888;
+  cursor: help;
+}
+
 h4 {
     margin-top: 25px;
 }
@@ -66,7 +73,7 @@ input[type=checkbox] { margin: 0;}
 
 .dataTable th, 
 .dataTable td {
-    font-size: 11px !important;
+    font-size: 13px !important;
     padding: 3px 5px !important; 
 }
 .dataTable th { padding-right: 18px !important }
