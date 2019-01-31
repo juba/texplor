@@ -48,6 +48,12 @@ texplor_corpus_ui <- function(qco, settings) {
 texplor_corpus_js <- function() {
   shiny::HTML("
 (function($) {
+
+ $('[data-toggle=\"popover\"]').popover(
+    {trigger: 'hover',
+     placement: 'top'}
+  );
+
 })(jQuery);
   ")
 }
@@ -58,6 +64,12 @@ texplor_corpus_js <- function() {
 ## n-grams
 m_ngrams <- 1:5
 names(m_ngrams) <- paste0(1:5, "-gram")
+
+## Document level variables
+vars <- lapply(docvars(qco), unique)
+nvalues <- lapply(vars, length)
+classes <- lapply(vars, class)
+vars <- vars[(nvalues > 1 & nvalues < 100) | classes %in% c("numeric", "Date")]
 
 ## Document corpus choices
 doc_corpus_choices <- "clean"
@@ -79,12 +91,21 @@ names(loc_type_choices) <- c(gettext("Words"), gettext("Sentence"))
 
 ## Initial dictionary value
 dict2txt <- function(dict) {
+  if (is.null(dict) || dict == "") return("")
   out <- ""
   for (i in 1:length(dict)) {
     out <- paste0(out, names(dict)[i], " = ")
     out <- paste0(out, paste(dict[[i]], collapse = ", "), "\n")
   }
   out
+}
+
+## Show help icon with popover
+help_icon <- function(txt) {
+  tags$span(icon("question-circle"), 
+    class="help-icon",
+    `data-toggle` = "popover",
+    `data-content` = txt)
 }
 
 navbarPage(theme = shinythemes::shinytheme("cosmo"),
@@ -95,8 +116,8 @@ navbarPage(theme = shinythemes::shinytheme("cosmo"),
   windowTitle = "texplor corpus",
   header = tags$head(                        
     tags$style(texplor_text_css()),
-    tags$style(texplor_corpus_css()),
-    tags$script(texplor_corpus_js())),
+    tags$style(texplor_corpus_css())
+  ),
   
   ## "Corpus" tab -------------------------------------------------
   
@@ -130,21 +151,35 @@ navbarPage(theme = shinythemes::shinytheme("cosmo"),
         h3(gettext("Corpus filtering")),
         #p(gettext("If nothing is selected, no filter is applied.")),
         h4(gettext("Filter terms")),
-        numericInput("term_min_occurrences", label = gettext("Minimum frequency"), 0, 0, 1000, 1),
-        h4(gettext("Filter documents")),
+        numericInput("term_min_occurrences", label = gettext("Minimum frequency"),
+          value = 0, 
+          min = 0, 
+          max = 10000, 
+          step = 1,
+          width = "190px"),
+        h4(HTML(paste(gettext("Filter documents"), 
+          help_icon(gettext("Filter documents based on metadata variables values."))))
+        ),
         uiOutput("filters")
       ),
       column(3,
         h3(gettext("Stop words")),
         div(id="stopwords_div",
-          texplor_switch("treat_stopwords", gettext("Remove stopwords"), value = !is.null(settings$stopwords)),
-          textAreaInput("stopwords", gettext("Stop words"), value = paste(settings$stopwords, collapse = ", "),
+          texplor_switch("treat_stopwords", 
+            label = gettext("Remove stopwords"),
+            value = !is.null(settings$stopwords)),
+          textAreaInput("stopwords", 
+            label = HTML(paste(gettext("Stop words"),
+              help_icon(gettext("Enter a list of stopwords to be removed, separated by commas.")))),  
+            value = paste(settings$stopwords, collapse = ", "),
             width = "100%", rows = 6)
         ),
         h3(gettext("Dictionary")),
         div(id="dictionary_div",
           texplor_switch("treat_dictionary", gettext("Apply dictionary"), value = !is.null(settings$dictionary)),
-          textAreaInput("dictionary", gettext("Edit dictionary"), value = dict2txt(settings$dictionary),
+          textAreaInput("dictionary", 
+            HTML(paste(gettext("Edit the current dictionary"), help_icon(gettext("Enter one entry per line, with the replacement term followed by = and a list of words or expressions separated by commas.")))), 
+            value = dict2txt(settings$dictionary),
                       width = "100%", rows = 15),
           shinyWidgets::radioGroupButtons(inputId = "dictionary_type", label=NULL, 
             status = "primary",
@@ -156,7 +191,8 @@ navbarPage(theme = shinythemes::shinytheme("cosmo"),
         p(HTML("<strong>", gettext("Number of documents"), "&nbsp;:</strong>"), textOutput("nbdocs", inline = TRUE)),
         DT::dataTableOutput("freqtable")
       )
-    )
+    ),
+    tags$script(texplor_corpus_js())
   ),
   
   ## "Documents" tab --------------------------------------------
