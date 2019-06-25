@@ -1,5 +1,10 @@
-- Lemmatisation avec Spacy
-- Possibilité de manipuler le thesaurus (regroupement de termes) et les mots-outils. On passe des listes en entrée, si elles sont modifiées on les met en sortie aussi.
+
+Phase de compound : soit générale, soit limitée aux noms avec des majuscules.
+Peut intervenir avant ou après la tokenization.
+Deux fonctions : compound_tokens et compound_corpus ? Option des noms propres seulement avec compound_corpus ?
+
+- Réorganiser les interfaces et ajouter token_compound
+- Lemmatisation avec Spacy et udpipe
 
 
 Nuages de mots :

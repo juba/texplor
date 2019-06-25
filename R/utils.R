@@ -20,13 +20,13 @@ if (getRversion() >= "2.15.1")
 ##' texplor(data_corpus_inaugural)
 ##' }
 
-texplor <- function(obj, ...) {
-  UseMethod("texplor")
-}
+#texplor <- function(obj, ...) {
+#  UseMethod("texplor")
+#}
 
 ##' @import shiny
 
-texplor_text_css <- function() {
+texplor_css <- function() {
   shiny::HTML("
 body {margin: 0;}
 
@@ -49,10 +49,6 @@ body {margin: 0;}
   cursor: help;
 }
 
-h4 {
-    margin-top: 25px;
-}
-
 #filters .shiny-input-checkboxgroup .shiny-options-group {
     max-height: 200px; 
     overflow-y: scroll; 
@@ -73,7 +69,7 @@ input[type=checkbox] { margin: 0;}
 
 .dataTable th, 
 .dataTable td {
-    font-size: 13px !important;
+    font-size: 12px !important;
     padding: 3px 5px !important; 
 }
 .dataTable th { padding-right: 18px !important }
@@ -121,6 +117,27 @@ span.hl.com { color: #888; font-style: italic;}
 ")
 }
 
+##' @export
+
+texplor_js <- function() {
+  "
+(function($) {
+
+ $('[data-toggle=\"popover\"]').popover(
+    {trigger: 'hover',
+     placement: 'top'}
+  );
+
+})(jQuery);
+  "
+}
+
+## Generate correct datatable order option from a column name
+order_option <- function(table, name, order="desc") {
+  index <- which(names(table) == name) - 1
+  list(order = list(list(index, order)))
+}
+
 #' @importFrom shinyWidgets materialSwitch
 
 texplor_switch <- function(id, label, value = TRUE, right = TRUE, status = "primary") {
@@ -132,3 +149,4 @@ texplor_switch <- function(id, label, value = TRUE, right = TRUE, status = "prim
     status = status
   )
 }
+

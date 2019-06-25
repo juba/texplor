@@ -61,17 +61,6 @@ texplor.corpus <- function(obj, raw_corpus = NULL, stopwords = NULL, dictionary 
 
 
 
-##' @import stringi
-texplor_corpus_highlight <- function(x, str, ngrams) {
-  if (!identical(ngrams, 1)) {
-    str <- stri_replace_all_fixed(str, pattern = "_", replacement = " ")
-  }
-  stringi::stri_replace_all_fixed(x, 
-    pattern = str,  
-    replacement = paste0("<span class='highlight'>",str,"</span>"),
-    vectorize_all = FALSE,
-    opts_fixed = stri_opts_fixed(case_insensitive = TRUE))
-}
 
 
 ##' @import shiny
