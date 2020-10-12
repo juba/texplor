@@ -3,10 +3,10 @@ Type: Package
 Title: Interactive Interfaces for Textual Analysis
 Version: 0.0.1
 Date: 2018-10-15
-Authors@R: c(person("Julien", "Barnier", email="julien.barnier@ens-lyon.fr",
+Authors@R: c(person("Julien", "Barnier", email="julien.barnier@cnrs.fr",
     role=c("aut","cre")))
-Maintainer: Julien Barnier <julien.barnier@ens-lyon.fr>
-Description: Shiny interfaces and utility functionq for textual analysis.
+Maintainer: Julien Barnier <julien.barnier@cnrs.fr>
+Description: Shiny interfaces and utility functions for textual analysis.
 License: GPL (>= 3)
 VignetteBuilder: knitr
 URL: https://github.com/juba/textools
@@ -27,4 +27,4 @@ Suggests:
     testthat,
     knitr,
     rmarkdown
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1

@@ -23,10 +23,3 @@ This function prepares results to be used by \code{explor}. Not to be used direc
 
 \code{\link[quanteda]{corpus}}
 }
-\author{
-Julien Barnier <julien.barnier@ens-lyon.fr>
-
-Julien Barnier <julien.barnier@ens-lyon.fr>
-
-Julien Barnier <julien.barnier@ens-lyon.fr>
-}

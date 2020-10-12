@@ -1,7 +1,6 @@
 
 ##' @rdname prepare_results
 ##' @aliases prepare_results.Corpus
-##' @author Julien Barnier <julien.barnier@@ens-lyon.fr>
 ##' @seealso \code{\link[tm]{Corpus}}
 ##' @import quanteda
 ##' @export
@@ -19,7 +18,6 @@ prepare_results.Corpus <- function(obj) {
 
 ##' @rdname prepare_results
 ##' @aliases prepare_results.corpus
-##' @author Julien Barnier <julien.barnier@@ens-lyon.fr>
 ##' @seealso \code{\link[quanteda]{corpus}}
 ##' @import quanteda
 ##' @export

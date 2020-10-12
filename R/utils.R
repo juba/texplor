@@ -11,7 +11,6 @@ if (getRversion() >= "2.15.1")
 ##' @param ... arguments passed to other methods
 ##' @return
 ##' The function launches a shiny app in the system web browser.
-##' @author Julien Barnier <julien.barnier@@ens-lyon.fr>
 ##' @export
 ##' @examples
 ##' \dontrun{
